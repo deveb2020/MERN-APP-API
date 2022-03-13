@@ -11,7 +11,7 @@ First, clone this repo to your local machine via the terminal :
   git clone https://github.com/deveb2020/MERN-APP-API.git
 ```
 
-Second, install node_modules :
+Second, install dependencies :
 ````
   npm install
 ````
