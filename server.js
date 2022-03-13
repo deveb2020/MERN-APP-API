@@ -2,20 +2,18 @@ const express = require('express')
 const cors = require('cors')
 const mongosse = require('mongoose')
 
-// makes dotenv file accesible for use
-require('dotenv').config()
-
 const app = express();
-const port = process.env.PORT || 5000;
+const port = 5000;
 
 // midleware
 app.use(cors());
 app.use(express.json());
 
-// connect database
-const uri = process.env.ATLAS_URI
-mongosse.connect(uri, { useNewUrlParser: true })
+// Public URI because this is only test database otherwise we hide in .env file
+const uri = "mongodb+srv://admin:admin@cluster0.vwxkf.mongodb.net/myFirstDatabase?retryWrites=true&w=majority" 
 
+// connect database 
+mongosse.connect(uri, { useNewUrlParser: true })
 const connection = mongosse.connection
 connection.once('open', () => { console.log("MongoDB database connected") })
 
